@@ -20,9 +20,10 @@
 </head>
 
 <body>
-    <div id="boolzapp" class="container">
 
-        <div class="row mt-3 border border-2">
+    <div id="boolzapp" class="container-fluid">
+
+        <div class="row mt-3 mb-3 ">
             <!-- Parte Sinistra Contatti -->
 
             <div class="col-4 border-end border-2">
@@ -35,9 +36,9 @@
                         <span class='dg--name-user'>Sofia</span>
                     </div>
                     <div class="col-4 text-end fs-5 ">
-                        <i class="fa-solid fa-circle-notch ms-2 dg--clr-dark-gray"></i>
-                        <i class="fa-solid fa-message ms-2 dg--clr-dark-gray"></i>
-                        <i class="fa-solid fa-ellipsis-vertical ms-2 dg--clr-dark-gray"></i>
+                        <i class="fa-solid fa-circle-notch ms-2 dg--clr-gray"></i>
+                        <i class="fa-solid fa-message ms-2 dg--clr-gray"></i>
+                        <i class="fa-solid fa-ellipsis-vertical ms-2 dg--clr-gray"></i>
                     </div>
                 </div>
 
@@ -47,7 +48,7 @@
 
                 <div class="row dg--bg-lightblue">
                     <div class="col-2 d-flex  justify-content-center align-items-center ">
-                        <div class="d-flex justify-content-center align-items-center dg--notice">
+                        <div class="d-flex justify-content-center align-items-center dg--notice ms-4">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
                     </div>
@@ -62,9 +63,9 @@
 
                 <!-- Sezione Ricerca Chat -->
 
-                <div class="row">
+                <div class="row bg-white">
                     <div class="col-12 py-2 d-flex">
-                        <i class="fa-solid fa-magnifying-glass dg--clr-dark-gray dg--search-icon"></i>
+                        <i class="fa-solid fa-magnifying-glass dg--clr-gray dg--search-icon"></i>
                         <input class="w-100 dg--text-gray dg--search-bar" type="text"
                             placeholder="Cerca o inizia una nuova chat">
                     </div>
@@ -73,7 +74,7 @@
 
                 <!-- Sezione Contatti  -->
 
-                <div class="row dg--bg-contact" v-for="contattiUser in contacts">
+                <div class="row dg--bg-contact border-top border-1" v-for="contattiUser in contacts">
 
                     <div class="col-2 py-2 d-flex align-items-center">
                         <div>
@@ -114,14 +115,36 @@
                         </div>
                     </div>
                     <div class="col-4 d-flex justify-content-end py-2 fs-5 ">
-                        <i class="fa-solid fa-magnifying-glass me-2 dg--clr-dark-gray"></i>
-                        <i class="fa-solid fa-paperclip me-2 dg--clr-dark-gray"></i>
-                        <i class="fa-solid fa-ellipsis-vertical me-2 dg--clr-dark-gray"></i>
+                        <i class="fa-solid fa-magnifying-glass me-2 dg--clr-gray"></i>
+                        <i class="fa-solid fa-paperclip me-2 dg--clr-gray"></i>
+                        <i class="fa-solid fa-ellipsis-vertical me-2 dg--clr-gray"></i>
                     </div>
                 </div>
 
                 <!-- / Avatar, Nome, Contatto e Icone -->
 
+                <!-- Sezione Chat -->
+
+                <div class="row dg--bg-chat"></div>
+
+                <!-- Input Messaggio -->
+
+                <div class="row d-flex align-items-center p-3 dg--input-message">
+                    <div class="col-1 text-center">
+                        <i class="fa-regular fa-face-smile dg--clr-dark-grey fs-5"></i>
+                    </div>
+                    <div class="col-10">
+                        <input class="w-100 dg--text-message" type="text" placeholder="Scrivi un messaggio">
+                    </div>
+                    <div class="col-1 text-center">
+                        <i class="fa-solid fa-microphone dg--clr-dark-grey fs-5"></i>
+                    </div>
+                </div>
+
+                <!-- / Input Messaggio -->
+
+
+                <!-- / Sezione Chat -->
             </div>
 
 

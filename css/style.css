@@ -7,7 +7,7 @@
   height: 60px;
 }
 
-.dg--clr-dark-gray {
+.dg--clr-gray {
   color: #b1b1b1;
 }
 
@@ -31,7 +31,8 @@
 
 .dg--bg-chat {
   background-image: url(../img/mine.jpg);
-  /* provvisorio per vedere meglio */
+  overflow-y: scroll;
+  /* ho dato un'altezza fissa momentanea per visibilità */
   height: 700px;
 }
 
@@ -60,6 +61,26 @@
   padding: 5px 0px 5px 5px;
 }
 
+.dg--bg-contact {
+  background-color: #fff;
+}
+
 .dg--bg-contact:hover {
   background-color: #eaeaea;
+}
+
+.dg--clr-dark-grey {
+  color: rgb(114, 114, 114);
+}
+
+.dg--text-message {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-size: 0.7rem;
+}
+
+.dg--input-message {
+  background-color: #ebe8e6;
 }
