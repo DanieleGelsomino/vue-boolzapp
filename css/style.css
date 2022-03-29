@@ -1,0 +1,49 @@
+.dg--bg-gray {
+  background-color: #eaeaea;
+}
+
+.dg--bg-lightblue {
+  background-color: #8edafb;
+  height: 60px;
+}
+
+.dg--clr-dark-gray {
+  color: #b1b1b1;
+}
+
+.dg--users {
+  width: 50px;
+  border-radius: 50%;
+  margin: 8px;
+}
+
+.dg--name-user {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.dg--access-info,
+.dg--link {
+  font-size: 0.7rem;
+  color: #b1b1b1;
+  font-weight: 400;
+}
+
+.dg--bg-chat {
+  background-image: url(../img/mine.jpg);
+  /* provvisorio per vedere meglio */
+  height: 700px;
+}
+
+.dg--notice {
+  color: #8edafb;
+  border-radius: 50%;
+  background-color: white;
+  padding: 10px;
+}
+
+.dg--notice-title {
+  line-height: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
