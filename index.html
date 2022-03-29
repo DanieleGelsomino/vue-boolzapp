@@ -20,70 +20,95 @@
 </head>
 
 <body>
-    <div id="boolzapp">
-        <div class="container">
-            <!-- header section -->
-            <header>
-                <div class="row pt-3">
-                    <!-- user section -->
-                    <div class="col-4 dg--bg-gray border-end border-2 ">
-                        <div class="row align-items-center ">
-                            <div class="col-8">
-                                <img class="dg--users" src="img/avatar_io.jpg" alt="Sofia">
-                                <span class='dg--name-user'>Sofia</span>
-                            </div>
-                            <div class="col-4 text-end fs-5 ">
-                                <i class="fa-solid fa-circle-notch ms-2 dg--clr-dark-gray"></i>
-                                <i class="fa-solid fa-message ms-2 dg--clr-dark-gray"></i>
-                                <i class="fa-solid fa-ellipsis-vertical ms-2 dg--clr-dark-gray"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / user section -->
+    <div id="boolzapp" class="container">
 
-                    <!-- contact chat section -->
-                    <div class="col-8 dg--bg-gray">
-                        <div class="row">
-                            <div class="col-1">
-                                <img class="dg--users" src="img/avatar_1.jpg" alt="Michele">
+        <div class="row mt-3 border border-2">
+            <!-- Parte Sinistra Contatti -->
 
-                            </div>
-                            <div class="col-11 mt-3 ps-4">
-                                <span class="dg--name-user">Michele</span>
-                                <p class="dg--access-info">Ultimo accesso oggi alle 12:00</p>
-                            </div>
-                        </div>
+            <div class="col-4 border-end border-2">
+
+                <!--  Sezione User -->
+
+                <div class="row align-items-center dg--bg-gray ">
+                    <div class="col-8">
+                        <img class="dg--users" src="img/avatar_io.jpg" alt="Sofia">
+                        <span class='dg--name-user'>Sofia</span>
                     </div>
-                    <!-- / contact chat section -->
+                    <div class="col-4 text-end fs-5 ">
+                        <i class="fa-solid fa-circle-notch ms-2 dg--clr-dark-gray"></i>
+                        <i class="fa-solid fa-message ms-2 dg--clr-dark-gray"></i>
+                        <i class="fa-solid fa-ellipsis-vertical ms-2 dg--clr-dark-gray"></i>
+                    </div>
                 </div>
-            </header>
-            <!-- / header section -->
-            <!-- main section -->
-            <main>
+
+                <!-- / Sezione User -->
+
+                <!-- Sezione Notifiche -->
+
+                <div class="row dg--bg-lightblue">
+                    <div class="col-2 d-flex  justify-content-center align-items-center ">
+                        <div class="d-flex justify-content-center align-items-center dg--notice">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                    </div>
+                    <div class="col-10 d-flex flex-column justify-content-center">
+                        <span class="dg--notice-title">Ricevi notifiche di nuovi messaggi</span>
+                        <span class="text-decoration-underline dg--text-gray ">Attiva notifiche desktop</span>
+                    </div>
+
+                </div>
+
+                <!-- / Sezione Notifiche -->
+
+                <!-- Sezione Ricerca Chat -->
 
                 <div class="row">
-                    <div class="col-4 dg--bg-lightblue d-flex align-items-center">
-                        <div class="row align-items-center">
-                            <div class="col-2">
-                                <i class="fa-solid fa-bell-slash dg--notice"></i>
-                            </div>
-                            <div class="col-10 mt-2">
-                                <span class="dg--notice-title">Ricevi notifiche di nuovi messaggi
-                                    <p><a href="#" class="dg--link">Attiva notifiche desktop</a></p>
-                                </span>
+                    <div class="col-12 py-2 d-flex">
+                        <i class="fa-solid fa-magnifying-glass dg--clr-dark-gray dg--search-icon"></i>
+                        <input class="w-100 dg--text-gray dg--search-bar" type="text"
+                            placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+                <!-- / Sezione Ricerca Chat -->
 
-                            </div>
+                <!-- Sezione Contatti  -->
+
+                <div class="row dg--bg-contact" v-for="contattiUser in contacts">
+
+                    <div class="col-2 py-2 d-flex align-items-center">
+                        <div>
+                            <img class="dg--users" :src="imgUrlContact(contattiUser)" alt="">
                         </div>
                     </div>
-
-                    <!-- chat section -->
-                    <div class="col-8 dg--bg-chat">
+                    <div class="col-8 d-flex justify-content-center align-items-center">
+                        <div>
+                            <span class='dg--name-user'>{{contattiUser.name}}</span>
+                            <p class="dg--text-gray">Ultimo messaggio inviato</p>
+                        </div>
                     </div>
-                    <!-- / chat section -->
+                    <div class="col-2 d-flex justify-content-end py-2">
+                        <span class="dg--text-gray">12:00</span>
+                    </div>
                 </div>
-            </main>
-            <!-- / main section -->
+
+                <!-- / Sezione Contatti  -->
+            </div>
+
+            <!-- / Parte Sinistra Contatti -->
+
+            <!-- Parte Destra Chat -->
+
+
+
+
+            <!-- / Parte Destra Chat -->
+
+
+
         </div>
+
+
+
 
 
     </div>
