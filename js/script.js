@@ -177,10 +177,24 @@ const app = new Vue({
   el: "#boolzapp",
   data: {
     contacts,
+    contactSelected: null,
+    sentMessage: "dg--sent",
+    receivedMessage: "dg--received",
   },
   methods: {
     imgUrlContact(imgContacts) {
       return `img/avatar${imgContacts.avatar}.jpg`;
+    },
+
+    selectActiveContact(i) {
+      this.contactSelected = i;
+    },
+
+    getLastMessage(contattiUser) {
+      const messages = contattiUser.messages;
+      const lastMessage =
+        messages.length > 0 ? messages[messages.length - 1].message : "";
+      return lastMessage;
     },
   },
 });
