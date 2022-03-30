@@ -188,6 +188,7 @@ const app = new Vue({
 
     selectActiveContact(i) {
       this.contactSelected = i;
+      console.log(this.contactSelected);
     },
 
     getLastMessage(contattiUser) {

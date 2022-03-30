@@ -104,21 +104,23 @@
 
                 <!-- Avatar, Nome, Contatto e Icone  -->
 
-                <div class="row align-items-center justify-content-between dg--bg-gray">
+                <div class="row align-items-center justify-content-end dg--bg-gray">
                     <div class="col-8" v-if="contactSelected !== null">
                         <div class="d-flex align-items-center">
-                            <img class="dg--users" :src="imgUrlContact(contacts[contactSelected].avatar)" alt="">
+                            <img class="dg--users" :src="imgUrlContact(contacts[contactSelected])" alt="">
                             <div class="flex-column pt-2">
                                 <span class='dg--name-user'>{{contacts[contactSelected].name}}</span>
                                 <p class="dg--text-gray">Ultimo accesso oggi alle 12:00</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 d-flex justify-content-end py-2 fs-5 dg--cursor ">
+
+                    <div class="col-4 d-flex justify-content-end py-2 fs-5 dg--cursor dg--icons-right">
                         <i class="fa-solid fa-magnifying-glass me-2 dg--clr-gray"></i>
                         <i class="fa-solid fa-paperclip me-2 dg--clr-gray"></i>
                         <i class="fa-solid fa-ellipsis-vertical me-2 dg--clr-gray"></i>
                     </div>
+
                 </div>
 
                 <!-- / Avatar, Nome, Contatto e Icone -->
