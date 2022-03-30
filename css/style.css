@@ -120,7 +120,7 @@ body {
 
 .dg--bg-chat {
   background-image: url(../img/mine.jpg);
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
 }
 

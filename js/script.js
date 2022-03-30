@@ -177,9 +177,7 @@ const app = new Vue({
   el: "#boolzapp",
   data: {
     contacts,
-    contactSelected: null,
-    sentMessage: "dg--sent",
-    receivedMessage: "dg--received",
+    contactSelected: 0,
   },
   methods: {
     imgUrlContact(imgContacts) {

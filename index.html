@@ -105,7 +105,7 @@
                 <!-- Avatar, Nome, Contatto e Icone  -->
 
                 <div class="row align-items-center justify-content-end dg--bg-gray">
-                    <div class="col-8" v-if="contactSelected !== null">
+                    <div class="col-8" v-if="contactSelected !== 0">
                         <div class="d-flex align-items-center">
                             <img class="dg--users" :src="imgUrlContact(contacts[contactSelected])" alt="">
                             <div class="flex-column pt-2">
@@ -128,17 +128,10 @@
                 <!-- Sezione Chat -->
 
                 <div class="row dg--bg-chat">
-                    <div class="dg--chat mt-5">
-                        <div class=" col-4 dg--message dg--sent align-self-end me-5 mb-3">
-                            Hai portato a spasso il
-                            cane?
-                            <span class="dg--text-gray dg--hour">12:00</span>
-                        </div>
-                        <div class=" col-4 dg--message dg--sent align-self-end me-5">Ricordati di stendere i panni
-                            <span class="dg--text-gray dg--hour">12:00</span>
-                        </div>
-                        <div class=" col-3 dg--message dg--received ms-5 mt-2">Tutto fatto!
-                            <span class="dg--text-gray dg--hour">12:00</span>
+                    <div class="dg--chat mt-5 " v-for="messaggi in contacts[contactSelected].messages">
+                        <div class="col-4 dg--message align-self-end me-5 mb-3" :class="'dg--'+ messaggi.status">
+                            <span>{{messaggi.message}}</span>
+                            <span class="dg--text-gray dg--hour">{{messaggi.date}}</span>
                         </div>
                     </div>
 
