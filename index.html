@@ -20,13 +20,13 @@
 </head>
 
 <body>
-
-    <div id="boolzapp" class="container-fluid">
+    <div class="dg--bg-green"></div>
+    <div id="boolzapp" class="container">
 
         <div class="row mt-3 mb-3 ">
             <!-- Parte Sinistra Contatti -->
 
-            <div class="col-4 border-end border-2">
+            <div class="col-4 border-end border-2 ">
 
                 <!--  Sezione User -->
 
@@ -35,7 +35,7 @@
                         <img class="dg--users" src="img/avatar_io.jpg" alt="Sofia">
                         <span class='dg--name-user'>Sofia</span>
                     </div>
-                    <div class="col-4 text-end fs-5 ">
+                    <div class="col-4 text-end fs-5 dg--cursor ">
                         <i class="fa-solid fa-circle-notch ms-2 dg--clr-gray"></i>
                         <i class="fa-solid fa-message ms-2 dg--clr-gray"></i>
                         <i class="fa-solid fa-ellipsis-vertical ms-2 dg--clr-gray"></i>
@@ -49,12 +49,13 @@
                 <div class="row dg--bg-lightblue">
                     <div class="col-2 d-flex  justify-content-center align-items-center ">
                         <div class="d-flex justify-content-center align-items-center dg--notice ms-4">
-                            <i class="fa-solid fa-bell-slash"></i>
+                            <i class="fa-solid fa-bell-slash dg--cursor"></i>
                         </div>
                     </div>
                     <div class="col-10 d-flex flex-column justify-content-center">
                         <span class="dg--notice-title">Ricevi notifiche di nuovi messaggi</span>
-                        <span class="text-decoration-underline dg--text-gray ">Attiva notifiche desktop</span>
+                        <span class="text-decoration-underline dg--text-gray dg--cursor ">Attiva notifiche
+                            desktop</span>
                     </div>
 
                 </div>
@@ -64,8 +65,8 @@
                 <!-- Sezione Ricerca Chat -->
 
                 <div class="row bg-white">
-                    <div class="col-12 py-2 d-flex">
-                        <i class="fa-solid fa-magnifying-glass dg--clr-gray dg--search-icon"></i>
+                    <div class="col-12 py-2 d-flex dg--bg-white">
+                        <i class="fa-solid fa-magnifying-glass dg--clr-gray dg--search-icon dg--cursor"></i>
                         <input class="w-100 dg--text-gray dg--search-bar" type="text"
                             placeholder="Cerca o inizia una nuova chat">
                     </div>
@@ -74,21 +75,20 @@
 
                 <!-- Sezione Contatti  -->
 
-                <div class="row dg--bg-contact border-top border-1" v-for="contattiUser in contacts">
+                <div class="row dg--bg-contact border-top border-1" v-for="(contattiUser, index) in contacts"
+                    @click="selectActiveContact(index)">
+                    <div class="col-10 d-flex justify-content-start align-items-center">
+                        <div class="d-flex align-items-center pt-2">
+                            <img class="dg--users" :src="imgUrlContact(contattiUser)" alt="contattiUser.name">
+                            <div class="d-flex flex-column">
+                                <span class='dg--name-user'>{{contattiUser.name}}</span>
+                                <p class="dg--text-gray">{{getLastMessage(contattiUser)}}</p>
+                            </div>
 
-                    <div class="col-2 py-2 d-flex align-items-center">
-                        <div>
-                            <img class="dg--users" :src="imgUrlContact(contattiUser)" alt="">
-                        </div>
-                    </div>
-                    <div class="col-8 d-flex justify-content-center align-items-center">
-                        <div>
-                            <span class='dg--name-user'>{{contattiUser.name}}</span>
-                            <p class="dg--text-gray">Ultimo messaggio inviato</p>
                         </div>
                     </div>
                     <div class="col-2 d-flex justify-content-end py-2">
-                        <span class="dg--text-gray">12:00</span>
+                        <span class="dg--text-gray"></span>
                     </div>
                 </div>
 
@@ -105,16 +105,16 @@
                 <!-- Avatar, Nome, Contatto e Icone  -->
 
                 <div class="row align-items-center justify-content-between dg--bg-gray">
-                    <div class="col-8">
+                    <div class="col-8" v-if="contactSelected !== null">
                         <div class="d-flex align-items-center">
-                            <img class="dg--users" src="img/avatar_1.jpg" alt="Michele">
+                            <img class="dg--users" :src="imgUrlContact(contacts[contactSelected].avatar)" alt="">
                             <div class="flex-column pt-2">
-                                <span class='dg--name-user'>Michele</span>
+                                <span class='dg--name-user'>{{contacts[contactSelected].name}}</span>
                                 <p class="dg--text-gray">Ultimo accesso oggi alle 12:00</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 d-flex justify-content-end py-2 fs-5 ">
+                    <div class="col-4 d-flex justify-content-end py-2 fs-5 dg--cursor ">
                         <i class="fa-solid fa-magnifying-glass me-2 dg--clr-gray"></i>
                         <i class="fa-solid fa-paperclip me-2 dg--clr-gray"></i>
                         <i class="fa-solid fa-ellipsis-vertical me-2 dg--clr-gray"></i>
@@ -125,26 +125,42 @@
 
                 <!-- Sezione Chat -->
 
-                <div class="row dg--bg-chat"></div>
+                <div class="row dg--bg-chat">
+                    <div class="dg--chat mt-5">
+                        <div class=" col-4 dg--message dg--sent align-self-end me-5 mb-3">
+                            Hai portato a spasso il
+                            cane?
+                            <span class="dg--text-gray dg--hour">12:00</span>
+                        </div>
+                        <div class=" col-4 dg--message dg--sent align-self-end me-5">Ricordati di stendere i panni
+                            <span class="dg--text-gray dg--hour">12:00</span>
+                        </div>
+                        <div class=" col-3 dg--message dg--received ms-5 mt-2">Tutto fatto!
+                            <span class="dg--text-gray dg--hour">12:00</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- / Sezione Chat -->
 
                 <!-- Input Messaggio -->
 
                 <div class="row d-flex align-items-center p-3 dg--input-message">
                     <div class="col-1 text-center">
-                        <i class="fa-regular fa-face-smile dg--clr-dark-grey fs-5"></i>
+                        <i class="fa-regular fa-face-smile dg--clr-dark-grey fs-5 dg--cursor"></i>
                     </div>
                     <div class="col-10">
                         <input class="w-100 dg--text-message" type="text" placeholder="Scrivi un messaggio">
                     </div>
                     <div class="col-1 text-center">
-                        <i class="fa-solid fa-microphone dg--clr-dark-grey fs-5"></i>
+                        <i class="fa-solid fa-microphone dg--clr-dark-grey fs-5 dg--cursor"></i>
                     </div>
                 </div>
 
                 <!-- / Input Messaggio -->
 
 
-                <!-- / Sezione Chat -->
             </div>
 
 
