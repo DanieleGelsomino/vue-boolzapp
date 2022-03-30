@@ -178,6 +178,8 @@ const app = new Vue({
   data: {
     contacts,
     contactSelected: 0,
+    newMessage: "",
+    search: "",
   },
   methods: {
     imgUrlContact(imgContacts) {
@@ -194,6 +196,30 @@ const app = new Vue({
       const lastMessage =
         messages.length > 0 ? messages[messages.length - 1].message : "";
       return lastMessage;
+    },
+
+    IsSentOrReceived(status) {
+      if (status !== "received") {
+        return "dg--sent";
+      } else {
+        return "dg--received";
+      }
+    },
+
+    onlyHourString(fullDate) {
+      return fullDate.split("").slice(11, 16).join("");
+    },
+
+    addNewMessage() {
+      if (this.newMessage.length > 0) {
+        const writeMessage = {
+          date: "10/01/2020 15:51:00",
+          message: this.newMessage,
+          status: "received",
+        };
+        this.newMessage = "";
+        this.contacts.push(writeMessage);
+      }
     },
   },
 });

@@ -120,7 +120,6 @@ body {
 
 .dg--bg-chat {
   background-image: url(../img/mine.jpg);
-  height: 100%;
   overflow-y: auto;
 }
 
@@ -131,7 +130,7 @@ body {
 }
 
 .dg--message {
-  padding: 8px;
+  padding: 10px 15px;
   border-radius: 10px;
   font-size: 0.8rem;
   position: relative;
@@ -139,17 +138,20 @@ body {
 
 .dg--sent {
   background-color: #d5f9ba;
+  align-self: flex-end;
 }
 
 .dg--received {
   background-color: #fff;
+
+  align-self: flex-start;
 }
 
 .dg--hour {
   font-size: 0.6rem;
   position: absolute;
   right: 4px;
-  bottom: 2px;
+  bottom: 1px;
 }
 
 /* ************ / Chat ************ */
