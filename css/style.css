@@ -105,11 +105,6 @@ body {
 
 /* ************ Contatti ************ */
 
-.dg--container-contacts {
-  height: 100vh;
-  background-color: #fff;
-}
-
 .dg--bg-contact {
   background-color: #fff;
 }
@@ -126,6 +121,7 @@ body {
 .dg--bg-chat {
   background-image: url(../img/mine.jpg);
   overflow-y: auto;
+  height: 100vh;
 }
 
 .dg--chat {
@@ -184,3 +180,7 @@ body {
 }
 
 /* ************ / Barra Messaggi ************ */
+
+.prova {
+  background-color: #fff;
+}

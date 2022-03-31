@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://boolean.careers/favicon/favicon.ico">
     <!-- ****** link Fontawesome ****** -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -16,18 +17,17 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- ****** link CSS****** -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="/img/avatar_1.jpg">
     <title>Boolzapp</title>
 </head>
 
 <body>
     <div class="dg--bg-green"></div>
-    <div id="boolzapp" class="container">
+    <div id="boolzapp" class="container ">
 
-        <div class="row mt-3 mb-3 ">
+        <div class="row mt-3 mb-3 bg-white">
             <!-- Parte Sinistra Contatti -->
 
-            <div class="col-4 border-end border-2 ">
+            <div class="col-4 border-end border-2">
 
                 <!--  Sezione User -->
 
@@ -65,7 +65,7 @@
 
                 <!-- Sezione Ricerca Chat -->
 
-                <div class="row bg-white">
+                <div class="row bg-white ">
                     <div class="col-12 py-2 d-flex dg--bg-white">
                         <i @click="searchContact"
                             class="fa-solid fa-magnifying-glass dg--clr-gray dg--search-icon dg--cursor"></i>
@@ -78,7 +78,7 @@
                 <!-- Sezione Contatti  -->
 
                 <div v-for="(contattiUser, index) in contacts" @click="selectActiveContact(index)"
-                    v-if="contattiUser.visible" class="row dg--bg-contact border-top border-1 align-content-start">
+                    v-if="contattiUser.visible" class="row dg--bg-contact border-top border-1  ">
                     <div class="col-10 d-flex justify-content-start align-items-center">
                         <div class="d-flex align-items-center pt-2">
                             <img class="dg--users" :src="imgUrlContact(contattiUser)" alt="contattiUser.name">
@@ -95,6 +95,7 @@
                 </div>
 
                 <!-- / Sezione Contatti  -->
+
             </div>
 
             <!-- / Parte Sinistra Contatti -->
@@ -133,7 +134,7 @@
 
                 <div class="row  pt-3 dg--bg-size dg--chat">
                     <div class="dg--chat" v-for="messaggi in contacts[contactSelected].messages">
-                        <div class="col-4 dg--message me-5 mb-3 p-2" :class="'dg--'+ messaggi.status">
+                        <div class="col-4 dg--message me-5 mb-3 p-2 mt-5" :class="'dg--'+ messaggi.status">
 
                             <div :class=" IsSentOrReceived(messaggi.status)" class="p-1 ">
                                 <span>{{messaggi.message}}</span>
