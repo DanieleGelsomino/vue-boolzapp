@@ -84,13 +84,13 @@
                             <img class="dg--users" :src="imgUrlContact(contattiUser)" alt="contattiUser.name">
                             <div class="d-flex flex-column">
                                 <span class='dg--name-user'>{{contattiUser.name}}</span>
-                                <p class="dg--text-gray">{{getLastMessage(contattiUser)}}</p>
+                                <p class="dg--text-gray">{{getLastMessage(contattiUser).message}}</p>
                             </div>
 
                         </div>
                     </div>
                     <div class="col-2 d-flex justify-content-end py-2">
-                        <span class="dg--text-gray">15:50</span>
+                        <span class="dg--text-gray">{{getLastMessage(contattiUser).date}}</span>
                     </div>
                 </div>
 
@@ -138,7 +138,7 @@
 
                             <div :class=" IsSentOrReceived(messaggi.status)" class="p-1 ">
                                 <span>{{messaggi.message}}</span>
-                                <span class="dg--text-gray dg--hour">{{messaggi.date}}</span>
+                                <span class="dg--text-gray dg--hour">{{ convertDateToTime(messaggi.date)}}</span>
 
                             </div>
 

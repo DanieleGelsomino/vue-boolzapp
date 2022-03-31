@@ -1,5 +1,4 @@
 console.log("Vue Js ok!");
-
 /*
     Milestone 1
     Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi)
@@ -9,7 +8,7 @@ console.log("Vue Js ok!");
     QUINDI solo la parte a sinistra sarà dinamica (per mostrare la lista contatti),
     mentre a destra ci sarà HTML statico, uguale a quello presentato nel layout
 */
-const contacts = [
+let contacts = [
   {
     name: "Michele",
     avatar: "_1",
@@ -38,17 +37,17 @@ const contacts = [
     visible: true,
     messages: [
       {
-        date: "20/03/2020 16:30:00",
+        date: "03/20/2020 16:30:00",
         message: "Ciao come stai?",
         status: "sent",
       },
       {
-        date: "20/03/2020 16:30:55",
+        date: "03/20/2020 16:30:55",
         message: "Bene grazie! Stasera ci vediamo?",
         status: "received",
       },
       {
-        date: "20/03/2020 16:35:00",
+        date: "03/20/2020 16:35:00",
         message: "Mi piacerebbe ma devo andare a fare la spesa.",
         status: "sent",
       },
@@ -60,17 +59,17 @@ const contacts = [
     visible: true,
     messages: [
       {
-        date: "28/03/2020 10:10:40",
+        date: "03/20/2020 10:10:40",
         message: "La Marianna va in campagna",
         status: "received",
       },
       {
-        date: "28/03/2020 10:20:10",
+        date: "03/20/2020 10:20:10",
         message: "Sicuro di non aver sbagliato chat?",
         status: "sent",
       },
       {
-        date: "28/03/2020 16:15:22",
+        date: "03/20/2020 16:15:22",
         message: "Ah scusa!",
         status: "received",
       },
@@ -190,19 +189,28 @@ const app = new Vue({
     // funzione per ricavare l'indice
     selectActiveContact(i) {
       this.contactSelected = i;
-      console.log(this.contactSelected);
     },
     // funzione per ricavare l'ultimo messaggio
     getLastMessage(contattiUser) {
       const messages = contattiUser.messages;
-      let lastMessage =
-        messages.length > 0 ? messages[messages.length - 1].message : "";
-      if (lastMessage.length > 30) {
-        lastMessage = lastMessage.substr(0, 30); //<-- metodo per estrarre parte della stringa
-        return lastMessage + "...";
+      let lastMessage = messages[messages.length - 1];
+
+      const messageToReturn = {
+        message: lastMessage.message,
+        date: dayjs(lastMessage.date).format("HH:mm"),
+      };
+      if (messageToReturn.message.length > 30) {
+        messageToReturn.message = messageToReturn.message.substr(0, 30); //<-- metodo per estrarre parte della stringa
+        messageToReturn.message = messageToReturn.message + "...";
       }
-      return lastMessage;
+      return messageToReturn;
     },
+
+    convertDateToTime(date) {
+      console.log(date);
+      return dayjs(date).format("HH:mm");
+    },
+
     // funzione per applicare le classi sent o received
     IsSentOrReceived(status) {
       if (status !== "received") {
@@ -217,7 +225,7 @@ const app = new Vue({
       if (this.newMessage.trim().length > 0) {
         const chatContact = this.contactSelected;
         const newMessageText = {
-          date: dayjs().format("DD/MM/YYYY HH:mm"),
+          date: dayjs(),
           message: this.newMessage,
           status: "sent",
         };
@@ -228,8 +236,9 @@ const app = new Vue({
         // imposto timeout per la risposta al messaggio
         setTimeout(() => {
           const responseMessage = {
-            date: dayjs().format("DD/MM/YYYY HH:mm"),
-            message: "ok",
+            date: dayjs(),
+            message:
+              "Sono occupato in questo momento, ti risponderò appena posso",
             status: "received",
           };
 
