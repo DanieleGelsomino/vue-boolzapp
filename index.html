@@ -77,7 +77,7 @@
                 <!-- Sezione Contatti  -->
 
                 <div v-for="(contattiUser, index) in contacts" @click="selectActiveContact(index)"
-                    v-if="contattiUser.visible" class="row dg--bg-contact border-top border-1">
+                    v-if="contattiUser.visible" class="row dg--bg-contact border-top border-1 align-content-start">
                     <div class="col-10 d-flex justify-content-start align-items-center">
                         <div class="d-flex align-items-center pt-2">
                             <img class="dg--users" :src="imgUrlContact(contattiUser)" alt="contattiUser.name">
@@ -133,11 +133,15 @@
                 <div class="row  pt-3 dg--bg-size dg--chat">
                     <div class="dg--chat" v-for="messaggi in contacts[contactSelected].messages">
                         <div class="col-4 dg--message me-5 mb-3 p-2" :class="'dg--'+ messaggi.status">
-                            <div :class=" IsSentOrReceived(messaggi.status)" class="p-1">
+
+                            <div :class=" IsSentOrReceived(messaggi.status)" class="p-1 ">
                                 <span>{{messaggi.message}}</span>
-                                <span class="dg--text-gray dg--hour">{{onlyHourString(messaggi.date)}}</span>
+                                <span class="dg--text-gray dg--hour"></span>
+
                             </div>
+
                         </div>
+
                     </div>
 
                 </div>

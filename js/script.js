@@ -180,6 +180,7 @@ const app = new Vue({
     contactSelected: 0,
     newMessage: "",
     search: "",
+    activeMenu: -1,
   },
   methods: {
     imgUrlContact(imgContacts) {
@@ -193,8 +194,12 @@ const app = new Vue({
     // funzione per ricavare l'ultimo messaggio
     getLastMessage(contattiUser) {
       const messages = contattiUser.messages;
-      const lastMessage =
+      let lastMessage =
         messages.length > 0 ? messages[messages.length - 1].message : "";
+      if (lastMessage.length > 30) {
+        lastMessage = lastMessage.substr(0, 30);
+        return lastMessage + "...";
+      }
       return lastMessage;
     },
     // funzione per applicare le classi sent o received
@@ -206,9 +211,6 @@ const app = new Vue({
       }
     },
 
-    onlyHourString(fullDate) {
-      return fullDate.split("").slice(11, 16).join("");
-    },
     // funzione per aggiungere un nuovo messaggio
     addNewMessageText() {
       if (this.newMessage.trim().length > 0) {
