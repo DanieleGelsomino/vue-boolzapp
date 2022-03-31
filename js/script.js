@@ -205,9 +205,8 @@ const app = new Vue({
       }
       return messageToReturn;
     },
-
+    // funzione per ricavare l'ora dalla data
     convertDateToTime(date) {
-      console.log(date);
       return dayjs(date).format("HH:mm");
     },
 
