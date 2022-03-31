@@ -66,9 +66,10 @@
 
                 <div class="row bg-white">
                     <div class="col-12 py-2 d-flex dg--bg-white">
-                        <i class="fa-solid fa-magnifying-glass dg--clr-gray dg--search-icon dg--cursor"></i>
-                        <input class="w-100 dg--text-gray dg--search-bar" type="text"
-                            placeholder="Cerca o inizia una nuova chat">
+                        <i @click="searchContact"
+                            class="fa-solid fa-magnifying-glass dg--clr-gray dg--search-icon dg--cursor"></i>
+                        <input v-model="search" @keyup="searchContact" class="w-100 dg--text-gray dg--search-bar"
+                            type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
                 <!-- / Sezione Ricerca Chat -->
@@ -76,7 +77,7 @@
                 <!-- Sezione Contatti  -->
 
                 <div v-for="(contattiUser, index) in contacts" @click="selectActiveContact(index)"
-                    class="row dg--bg-contact border-top border-1">
+                    v-if="contattiUser.visible" class="row dg--bg-contact border-top border-1">
                     <div class="col-10 d-flex justify-content-start align-items-center">
                         <div class="d-flex align-items-center pt-2">
                             <img class="dg--users" :src="imgUrlContact(contattiUser)" alt="contattiUser.name">

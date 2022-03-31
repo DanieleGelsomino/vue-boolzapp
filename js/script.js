@@ -234,5 +234,17 @@ const app = new Vue({
         }, 1000);
       }
     },
+
+    // funzione per gestire visibilità dei contatti quando faccio ricerca
+
+    searchContact() {
+      this.contacts.filter((contact) => {
+        if (!contact.name.toLowerCase().includes(this.search.toLowerCase())) {
+          contact.visible = false;
+        } else {
+          contact.visible = true;
+        }
+      });
+    },
   },
 });
