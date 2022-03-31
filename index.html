@@ -16,6 +16,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- ****** link CSS****** -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="/img/avatar_1.jpg">
     <title>Boolzapp</title>
 </head>
 
@@ -136,7 +137,7 @@
 
                             <div :class=" IsSentOrReceived(messaggi.status)" class="p-1 ">
                                 <span>{{messaggi.message}}</span>
-                                <span class="dg--text-gray dg--hour"></span>
+                                <span class="dg--text-gray dg--hour">{{messaggi.date}}</span>
 
                             </div>
 
@@ -176,7 +177,9 @@
 
     </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.4.1/dayjs.min.js"
+        integrity="sha512-sIJLH6RIjwp62tb8srpB5he4ZGfPN8GGxjrkxxrp6weeo62nHE9ORrzwAbexzqPPxZNKuESCwPM1Z/PL3cULVg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- ****** link js ****** -->
     <script src="js/script.js"></script>
 </body>

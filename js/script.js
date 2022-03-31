@@ -178,9 +178,10 @@ const app = new Vue({
   data: {
     contacts,
     contactSelected: 0,
+    // key per inserire un nuovo messaggio
     newMessage: "",
+    // key per cercare nomi nella lista contatti
     search: "",
-    activeMenu: -1,
   },
   methods: {
     imgUrlContact(imgContacts) {
@@ -197,7 +198,7 @@ const app = new Vue({
       let lastMessage =
         messages.length > 0 ? messages[messages.length - 1].message : "";
       if (lastMessage.length > 30) {
-        lastMessage = lastMessage.substr(0, 30);
+        lastMessage = lastMessage.substr(0, 30); //<-- metodo per estrarre parte della stringa
         return lastMessage + "...";
       }
       return lastMessage;
@@ -216,7 +217,7 @@ const app = new Vue({
       if (this.newMessage.trim().length > 0) {
         const chatContact = this.contactSelected;
         const newMessageText = {
-          date: "10/01/2020 15:51:00",
+          date: dayjs().format("DD/MM/YYYY HH:mm"),
           message: this.newMessage,
           status: "sent",
         };
@@ -227,7 +228,7 @@ const app = new Vue({
         // imposto timeout per la risposta al messaggio
         setTimeout(() => {
           const responseMessage = {
-            date: "10/01/2020 15:51:00",
+            date: dayjs().format("DD/MM/YYYY HH:mm"),
             message: "ok",
             status: "received",
           };
@@ -238,7 +239,6 @@ const app = new Vue({
     },
 
     // funzione per gestire visibilità dei contatti quando faccio ricerca
-
     searchContact() {
       this.contacts.filter((contact) => {
         if (!contact.name.toLowerCase().includes(this.search.toLowerCase())) {

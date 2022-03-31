@@ -24,6 +24,11 @@ body {
   cursor: pointer;
 }
 
+.dg--text-message:focus-visible,
+.dg--search-bar:focus-visible {
+  outline-color: #b1b1b1;
+}
+
 /* ************ / Utilities ************ */
 
 /* ************ User ************ */
