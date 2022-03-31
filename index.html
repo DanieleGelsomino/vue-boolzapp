@@ -88,7 +88,7 @@
                         </div>
                     </div>
                     <div class="col-2 d-flex justify-content-end py-2">
-                        <span class="dg--text-gray">15:30</span>
+                        <span class="dg--text-gray">15:50</span>
                     </div>
                 </div>
 
@@ -104,7 +104,7 @@
 
                 <!-- Avatar, Nome, Contatto e Icone  -->
 
-                <div class="row align-items-center justify-content-end dg--bg-gray">
+                <div class=" row align-items-center justify-content-end dg--bg-gray">
                     <div class="col-8">
                         <div class="d-flex align-items-center">
                             <img class="dg--users" :src="imgUrlContact(contacts[contactSelected])" alt="">
@@ -132,8 +132,8 @@
                 <div class="row  pt-3 dg--bg-size dg--chat">
                     <div class="dg--chat" v-for="messaggi in contacts[contactSelected].messages">
                         <div class="col-4 dg--message me-5 mb-3 p-2" :class="'dg--'+ messaggi.status">
-                            <div :class=" IsSentOrReceived(messaggi.status)">
-                                <span class="p-2">{{messaggi.message}}</span>
+                            <div :class=" IsSentOrReceived(messaggi.status)" class="p-1">
+                                <span>{{messaggi.message}}</span>
                                 <span class="dg--text-gray dg--hour">{{onlyHourString(messaggi.date)}}</span>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                         <i class="fa-regular fa-face-smile dg--clr-dark-grey fs-5 dg--cursor"></i>
                     </div>
                     <div class="col-10">
-                        <input v-model="newMessage" @keyup.enter="addNewMessage" class="w-100 dg--text-message"
+                        <input v-model="newMessage" @keyup.enter="addNewMessageText" class="w-100 dg--text-message"
                             type="text" placeholder="Scrivi un messaggio">
                     </div>
                     <div class="col-1 text-center">
@@ -158,13 +158,7 @@
                     </div>
                 </div>
 
-
-
-
-
                 <!-- / Input Messaggio -->
-
-
             </div>
 
 
@@ -173,9 +167,6 @@
 
 
         </div>
-
-
-
 
 
     </div>

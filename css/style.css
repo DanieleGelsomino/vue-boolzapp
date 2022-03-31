@@ -134,8 +134,9 @@ body {
 
 .dg--message {
   border-radius: 10px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   position: relative;
+  text-align: start;
 }
 
 .dg--sent {

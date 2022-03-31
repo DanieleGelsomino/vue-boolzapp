@@ -185,19 +185,19 @@ const app = new Vue({
     imgUrlContact(imgContacts) {
       return `img/avatar${imgContacts.avatar}.jpg`;
     },
-
+    // funzione per ricavare l'indice
     selectActiveContact(i) {
       this.contactSelected = i;
       console.log(this.contactSelected);
     },
-
+    // funzione per ricavare l'ultimo messaggio
     getLastMessage(contattiUser) {
       const messages = contattiUser.messages;
       const lastMessage =
         messages.length > 0 ? messages[messages.length - 1].message : "";
       return lastMessage;
     },
-
+    // funzione per applicare le classi sent o received
     IsSentOrReceived(status) {
       if (status !== "received") {
         return "dg--sent";
@@ -209,11 +209,12 @@ const app = new Vue({
     onlyHourString(fullDate) {
       return fullDate.split("").slice(11, 16).join("");
     },
-
+    // funzione per aggiungere un nuovo messaggio
     addNewMessageText() {
       if (this.newMessage.trim().length > 0) {
         const chatContact = this.contactSelected;
         const newMessageText = {
+          date: "10/01/2020 15:51:00",
           message: this.newMessage,
           status: "sent",
         };
@@ -221,9 +222,10 @@ const app = new Vue({
         this.contacts[chatContact].messages.push(newMessageText);
 
         this.newMessage = "";
-
+        // imposto timeout per la risposta al messaggio
         setTimeout(() => {
           const responseMessage = {
+            date: "10/01/2020 15:51:00",
             message: "ok",
             status: "received",
           };
