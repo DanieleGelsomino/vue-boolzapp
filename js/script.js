@@ -210,15 +210,26 @@ const app = new Vue({
       return fullDate.split("").slice(11, 16).join("");
     },
 
-    addNewMessage() {
-      if (this.newMessage.length > 0) {
-        const writeMessage = {
-          date: "10/01/2020 15:51:00",
+    addNewMessageText() {
+      if (this.newMessage.trim().length > 0) {
+        const chatContact = this.contactSelected;
+        const newMessageText = {
           message: this.newMessage,
-          status: "received",
+          status: "sent",
         };
+
+        this.contacts[chatContact].messages.push(newMessageText);
+
         this.newMessage = "";
-        this.contacts.push(writeMessage);
+
+        setTimeout(() => {
+          const responseMessage = {
+            message: "ok",
+            status: "received",
+          };
+
+          this.contacts[chatContact].messages.push(responseMessage);
+        }, 1000);
       }
     },
   },

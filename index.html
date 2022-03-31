@@ -75,8 +75,8 @@
 
                 <!-- Sezione Contatti  -->
 
-                <div class="row dg--bg-contact border-top border-1" v-for="(contattiUser, index) in contacts"
-                    @click="selectActiveContact(index)">
+                <div v-for="(contattiUser, index) in contacts" @click="selectActiveContact(index)"
+                    class="row dg--bg-contact border-top border-1">
                     <div class="col-10 d-flex justify-content-start align-items-center">
                         <div class="d-flex align-items-center pt-2">
                             <img class="dg--users" :src="imgUrlContact(contattiUser)" alt="contattiUser.name">
@@ -100,12 +100,12 @@
             <!-- Parte Destra Chat -->
 
 
-            <div class="col-8">
+            <div class="col-8 dg--bg-chat dg--chat">
 
                 <!-- Avatar, Nome, Contatto e Icone  -->
 
                 <div class="row align-items-center justify-content-end dg--bg-gray">
-                    <div class="col-8" v-if="contactSelected >= 0">
+                    <div class="col-8">
                         <div class="d-flex align-items-center">
                             <img class="dg--users" :src="imgUrlContact(contacts[contactSelected])" alt="">
                             <div class="flex-column pt-2">
@@ -129,11 +129,11 @@
 
                 <!-- Sezione Chat -->
 
-                <div class="row  dg--bg-chat pt-3">
+                <div class="row  pt-3 dg--bg-size dg--chat">
                     <div class="dg--chat" v-for="messaggi in contacts[contactSelected].messages">
-                        <div class="col-4 dg--message me-5 mb-3 p-3" :class="'dg--'+ messaggi.status">
+                        <div class="col-4 dg--message me-5 mb-3 p-2" :class="'dg--'+ messaggi.status">
                             <div :class=" IsSentOrReceived(messaggi.status)">
-                                <span>{{messaggi.message}}</span>
+                                <span class="p-2">{{messaggi.message}}</span>
                                 <span class="dg--text-gray dg--hour">{{onlyHourString(messaggi.date)}}</span>
                             </div>
                         </div>
@@ -150,13 +150,17 @@
                         <i class="fa-regular fa-face-smile dg--clr-dark-grey fs-5 dg--cursor"></i>
                     </div>
                     <div class="col-10">
-                        <input v-model='newMessage' @keyup.enter="addNewMessage" class="w-100 dg--text-message"
+                        <input v-model="newMessage" @keyup.enter="addNewMessage" class="w-100 dg--text-message"
                             type="text" placeholder="Scrivi un messaggio">
                     </div>
                     <div class="col-1 text-center">
                         <i class="fa-solid fa-microphone dg--clr-dark-grey fs-5 dg--cursor"></i>
                     </div>
                 </div>
+
+
+
+
 
                 <!-- / Input Messaggio -->
 

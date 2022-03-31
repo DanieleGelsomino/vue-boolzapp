@@ -124,15 +124,17 @@ body {
 }
 
 .dg--chat {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
+.dg--bg-size {
+  flex-grow: 1;
+}
+
 .dg--message {
-  padding: 10px 15px;
   border-radius: 10px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   position: relative;
 }
 
@@ -143,12 +145,11 @@ body {
 
 .dg--received {
   background-color: #fff;
-
   align-self: flex-start;
 }
 
 .dg--hour {
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   position: absolute;
   right: 4px;
   bottom: 1px;
@@ -167,7 +168,7 @@ body {
   border: none;
   border-radius: 5px;
   color: black;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .dg--input-message {
