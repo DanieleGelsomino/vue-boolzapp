@@ -103,7 +103,7 @@
             <!-- Parte Destra Chat -->
 
 
-            <div class="col-8 dg--bg-chat dg--chat">
+            <div class="col-8  dg--chat">
 
                 <!-- Avatar, Nome, Contatto e Icone  -->
 
@@ -132,7 +132,7 @@
 
                 <!-- Sezione Chat -->
 
-                <div class="row  pt-3 dg--bg-size dg--chat">
+                <div class="row  pt-3 dg--bg-size dg--chat dg--bg-chat">
                     <div class="dg--chat" v-for="messaggi in contacts[contactSelected].messages">
                         <div class="col-4 dg--message me-5 mb-3 p-2 mt-5" :class="'dg--'+ messaggi.status">
 
@@ -168,16 +168,16 @@
                 <!-- / Input Messaggio -->
             </div>
 
-
             <!-- / Parte Destra Chat -->
 
 
 
         </div>
 
+    </div>
 
-    </div>
-    </div>
+
+    <!-- ****** link libreria dayjs ****** -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.4.1/dayjs.min.js"
         integrity="sha512-sIJLH6RIjwp62tb8srpB5he4ZGfPN8GGxjrkxxrp6weeo62nHE9ORrzwAbexzqPPxZNKuESCwPM1Z/PL3cULVg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
