@@ -135,7 +135,6 @@
                 <div class="row  pt-3 dg--bg-size dg--chat dg--bg-chat">
                     <div class="dg--chat" v-for="messaggi in contacts[contactSelected].messages">
                         <div class="col-4 dg--message me-5 mb-3 p-2 mt-5" :class="'dg--'+ messaggi.status">
-
                             <div :class=" IsSentOrReceived(messaggi.status)" class="p-1 ">
                                 <span>{{messaggi.message}}</span>
                                 <span class="dg--text-gray dg--hour">{{ convertDateToTime(messaggi.date)}}</span>
